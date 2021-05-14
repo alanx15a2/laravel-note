@@ -53,3 +53,22 @@ sudo chmod -R ug+rwx storage bootstrap/cache
 * php artisan queue:restart
 
 ---
+
+## 錯誤等級
+
+* Emergency
+  * 系統無法使用
+* Alert
+  * 需要立刻採取行動
+* Critical
+  * 嚴重錯誤
+* Error
+  * 一般錯誤
+* Warning
+  * 警告
+* Notice
+  * 一般但重要訊息
+* Info
+  * 一般訊息
+* Debug
+  * 除錯專用
