@@ -72,3 +72,11 @@ sudo chmod -R ug+rwx storage bootstrap/cache
   * 一般訊息
 * Debug
   * 除錯專用
+
+---
+
+## Index column size too large. The maximum column size is 767 bytes.
+
+* Set innodb_file_format=Barracuda
+* Set innodb_large_prefix=1
+* Set innodb_default_row_format=dynamic
