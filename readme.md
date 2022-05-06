@@ -30,7 +30,7 @@ sudo chmod -R ug+rwx storage bootstrap/cache
 
 ### 一般伺服器
 
-* cd /var/www/html/agent/t2_payment
+* cd /path/to/laravel/root
 * php artisan optimize:clear
 * php artisan opcache:clear
 * git checkout develop
