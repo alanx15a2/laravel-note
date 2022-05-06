@@ -38,7 +38,8 @@ sudo chmod -R ug+rwx storage bootstrap/cache
 * git clean -df
 * git pull
 * composer install --no-dev
-* php artisan migrate
+* php artisan migrate --force
+* php artisan optimize
 * php artisan opcache:compile --force
 
 ### 排程伺服器 (僅開 queue worker 無 nginx)
