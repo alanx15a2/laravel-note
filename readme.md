@@ -24,6 +24,18 @@ sudo find . -type d -exec chmod 775 {} \;
 sudo chgrp -R www-data storage bootstrap/cache
 sudo chmod -R ug+rwx storage bootstrap/cache
 
+### LOG 權限
+
+```
+'daily' => [
+   'driver' => 'daily',
+   'path' => storage_path('logs/laravel.log'),
+   'level' => 'debug',
+   'days' => 14,
+   'permission' => 0666,
+],
+```
+
 ---
 
 ## 更新版本
