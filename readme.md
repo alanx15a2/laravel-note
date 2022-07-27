@@ -90,6 +90,12 @@ sudo chmod -R ug+rwx storage bootstrap/cache
 
 ## Index column size too large. The maximum column size is 767 bytes.
 
+### mysql version < 5.7.9
+
 * Set innodb_file_format=Barracuda
 * Set innodb_large_prefix=1
 * Set innodb_default_row_format=dynamic
+
+### other
+
+config.database.php > 'engine' => 'innodb row_format=dynamic',
