@@ -104,11 +104,10 @@ config.database.php > 'engine' => 'innodb row_format=dynamic',
 
 ## validation
 
-required = 必須有值
-sometimes = 當鍵出現的時候
-present = 必須有鍵
-
-sometimes|required = filled = 當鍵出現時必須有值
-present|required = required = 必須有鍵且必須有值
+* required = 必須有值
+* sometimes = 當鍵出現的時候
+* present = 必須有鍵
+* sometimes|required = filled = 當鍵出現時必須有值
+* present|required = required = 必須有鍵且必須有值
 
 
