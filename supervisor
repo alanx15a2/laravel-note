@@ -1,0 +1,22 @@
+# 1. create the config file, see below for content
+vi /etc/supervisor/conf.d/laravel-worker.conf
+
+# 2. Reload the daemon's configuration files
+supervisorctl reread
+> laravel-worker: available
+
+# 3. Reload config and add/remove as necessary
+supervisorctl update
+> laravel-worker: added process group
+
+# 4. Start all processes of the group "laravel-worker"
+supervisorctl start laravel-worker:*
+
+# 5. Get status for all processes of the group "laravel-worker"
+supervisorctl status laravel-worker:*
+> laravel-worker:laravel-worker_00   RUNNING   pid 23758, uptime 0:00:16
+> laravel-worker:laravel-worker_01   RUNNING   pid 23759, uptime 0:00:16
+
+# 6. After a change in php sources you have to restart the queue, since queue:work does run as daemon
+php artisan queue:restart
+> Broadcasting queue restart signal.
