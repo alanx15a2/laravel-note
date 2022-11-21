@@ -1,4 +1,5 @@
 # 1. create the config file, see below for content
+# if using centos remember use .ini not .conf
 vi /etc/supervisor/conf.d/laravel-worker.conf
 
 # 2. Reload the daemon's configuration files
