@@ -115,9 +115,17 @@ config.database.php > 'engine' => 'innodb row_format=dynamic',
 ## docker 
 
 在 windows 下由於 filesystem 的因素，透過 volume 讀取專案會嚴重托慢速度
-利用將 vendor 安裝在 container 內來加速反應速度
+以下有兩種解法
+1.利用將 vendor 安裝在 container 內來加速反應速度
 
 * RUN COMPOSER_VENDOR_DIR="/srv/vendor" composer install
 
 `public/index.php` and `artisan` 中
 include 置換為 `require '/srv/vendor/autoload.php';`
+1.掛載 volumes 的時候將 vendor 獨立設定
+```
+    volumes:
+      - ${APP_LOCATION}:/var/www/html
+      - '/var/www/html/vendor'
+```
+
