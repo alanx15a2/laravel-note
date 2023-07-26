@@ -98,7 +98,9 @@ sudo chmod -R ug+rwx storage bootstrap/cache
 
 ### other
 
-config.database.php > 'engine' => 'innodb row_format=dynamic',
+config.database.php >  
+'engine' => 'innodb row_format=dynamic',  
+'collation' => 'utf8mb4_0900_ai_ci',  
 
 ---
 
