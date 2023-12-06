@@ -123,7 +123,8 @@ config.database.php >
 * RUN COMPOSER_VENDOR_DIR="/srv/vendor" composer install
 
 `public/index.php` and `artisan` 中
-include 置換為 `require '/srv/vendor/autoload.php';`
+include 置換為 `require '/srv/vendor/autoload.php';`  
+
 2. 掛載 volumes 的時候將 vendor 獨立設定
 ```
     volumes:
