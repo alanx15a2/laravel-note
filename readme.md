@@ -126,9 +126,21 @@ config.database.php >
 include 置換為 `require '/srv/vendor/autoload.php';`  
 
 2. 掛載 volumes 的時候將 vendor 獨立設定
+
+建立一個 docker-entrypoint.sh 並在 Build image 時候 Copy 進去  
+COPY ./docker-entrypoint.sh /docker-entrypoint.sh
+``` sh
+composer install && php-fpm
 ```
+docker compose 在 service 新增以下參數
+``` dockerfile
+  service:
+    .
+    .
+    .
     volumes:
       - ${APP_LOCATION}:/var/www/html
       - '/var/www/html/vendor'
+    command: sh -c /docker-entrypoint.sh
 ```
 
