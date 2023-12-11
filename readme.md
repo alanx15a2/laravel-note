@@ -112,35 +112,4 @@ config.database.php >
 * sometimes|required = filled = 當鍵出現時必須有值
 * present|required = required = 必須有鍵且必須有值
 
----
-
-## docker 
-
-在 windows 下由於 filesystem 的因素，透過 volume 讀取專案會嚴重托慢速度
-以下有兩種解法
-1. 利用將 vendor 安裝在 container 內來加速反應速度
-
-* RUN COMPOSER_VENDOR_DIR="/srv/vendor" composer install
-
-`public/index.php` and `artisan` 中
-include 置換為 `require '/srv/vendor/autoload.php';`  
-
-2. 掛載 volumes 的時候將 vendor 獨立設定
-
-建立一個 docker-entrypoint.sh 並在 Build image 時候 Copy 進去  
-COPY ./docker-entrypoint.sh /docker-entrypoint.sh
-``` sh
-composer install && php-fpm
-```
-docker compose 在 service 新增以下參數
-``` dockerfile
-  service:
-    .
-    .
-    .
-    volumes:
-      - ${APP_LOCATION}:/var/www/html
-      - '/var/www/html/vendor'
-    command: sh -c /docker-entrypoint.sh
-```
 
