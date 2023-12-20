@@ -34,6 +34,7 @@
     1. local storage : 關閉網頁後 token 依然存在
     2. session storage : 關閉網頁後 token 消失，但跨分頁的話會是另一個 session (此處的 session 為會話階段，非伺服器上的 session)
     3. cookie : 關閉網頁後 token 消失，跨分頁也可以存取 token，但由於 cookie 每個請求都會自動送出，因此若未設定 http only 則可能被中間人攻擊。(由於僅作為儲存 token，而非使用 cookie 直接驗證，因此依然對 CSRF 免疫)
+  * 較容易被 XSS 攻擊取得認證資訊。
 
 ### Cookie
 
