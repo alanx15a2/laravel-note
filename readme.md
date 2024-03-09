@@ -17,12 +17,14 @@ sudo find /path/to/your/laravel/root/directory -type d -exec chmod 755 {} \;
 
 ### 以一般 user 為擁有者
 
+```
 cd /path/to/your/laravel/root/directory
 sudo chown -R $USER:www-data .
 sudo find . -type f -exec chmod 664 {} \;
 sudo find . -type d -exec chmod 775 {} \;
 sudo chgrp -R www-data storage bootstrap/cache
 sudo chmod -R ug+rwx storage bootstrap/cache
+```
 
 ### LOG 權限
 
